@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
 public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody2D myRigidbody2D;
@@ -20,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
         // Always turns x movement into a +ve number
 
         float absX = Mathf.Abs(myRigidbody2D.linearVelocityX);
+        
     }
 
     private void OnMove(InputValue value)
@@ -35,18 +35,19 @@ public class PlayerMovement : MonoBehaviour
             myRigidbody2D.linearVelocityY = jumpForce;
         }
     }
-    
+
     private bool isGrounded()
     {
         // Boxcast towards the floor
         // Converts a collider to a true
         // or nothing to false
-        
+
         return Physics2D.OverlapBox(
             groundCheck.position,
             new Vector2(0.1f, 0.05f),
             0);
-        
     }
+
+
 }
 
