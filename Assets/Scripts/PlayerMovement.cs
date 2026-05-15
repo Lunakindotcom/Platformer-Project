@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         // Always turns x movement into a +ve number
 
