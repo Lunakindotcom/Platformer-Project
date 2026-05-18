@@ -14,10 +14,9 @@ public class PlayerMovement : MonoBehaviour
         myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Always turns x movement into a +ve number
-
         float absX = Mathf.Abs(myRigidbody2D.linearVelocityX);
         
     }
