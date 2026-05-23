@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public Animator animator;
     public SpriteRenderer spriteRenderer;
     public ParticleSystem walkingParticles;
+    public AudioSource walkingAudioSource;
 
     public Transform groundCheck;
 
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         myRigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        walkingAudioSource = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -35,11 +37,13 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded() && !walkingParticles.isPlaying)
         {
             walkingParticles.Play();
+            walkingAudioSource.Play();
         }
 
         if (!isGrounded() && walkingParticles.isPlaying)
         {
             walkingParticles.Stop();
+            walkingAudioSource.Stop();
         }
     }
 

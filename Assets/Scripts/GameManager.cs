@@ -9,9 +9,11 @@ public class GameManager : MonoBehaviour
     public GameObject MenuPanel;
     public AudioSource inGameMusic;
     public AudioSource menuMusic;
+    public AudioSource walkingSoundEffect;
 
     void Start()
     {
+        walkingSoundEffect.Pause();
         StartPanel.SetActive(true);
         menuMusic.Play();
         Time.timeScale = 0f;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     
     public void Finish()
     {
+        walkingSoundEffect.Stop();
         finishPanel.SetActive(true);
         Time.timeScale = 0f;
     }
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void Menu()
     {
+        walkingSoundEffect.Pause();
         MenuPanel.SetActive(true);
         StartPanel.SetActive(false);
         Time.timeScale = 0f;
@@ -33,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     public void BackStart()
     {
+        walkingSoundEffect.Pause();
         MenuPanel.SetActive(false);
         StartPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -48,9 +53,11 @@ public class GameManager : MonoBehaviour
 
     public void Lost()
     {
+        walkingSoundEffect.Stop();
         losePanel.SetActive(true);
         inGameMusic.Stop();
         Time.timeScale = 0f;
+        
     }
 
     public void RestartLevel()
