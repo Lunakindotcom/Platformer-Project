@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject MenuPanel;
     public AudioSource inGameMusic;
     public AudioSource menuMusic;
+    public AudioSource loseMusic;
+    public AudioSource winMusic;
     public AudioSource walkingSoundEffect;
 
     void Start()
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
     
     public void Finish()
     {
+        inGameMusic.Stop();
+        winMusic.Play();
         walkingSoundEffect.Stop();
         finishPanel.SetActive(true);
         Time.timeScale = 0f;
@@ -53,9 +57,10 @@ public class GameManager : MonoBehaviour
 
     public void Lost()
     {
-        walkingSoundEffect.Stop();
-        losePanel.SetActive(true);
         inGameMusic.Stop();
+        losePanel.SetActive(true);
+        loseMusic.Play();
+        walkingSoundEffect.Stop(); ;
         Time.timeScale = 0f;
         
     }

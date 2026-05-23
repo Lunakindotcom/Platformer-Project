@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(gameObject);
             GameManager gm = FindAnyObjectByType<GameManager>();
-            gm.losePanel.SetActive(true);
+            gm.Lost();
         }
     }
 }
