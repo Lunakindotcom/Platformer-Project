@@ -45,5 +45,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: MenuScreens
+    uniqueID: 3165581565
+    locked: 0
   m_RenderingLayers:
   - Default
